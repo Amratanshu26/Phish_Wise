@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>PhishDetector</title>
+  <link href="static/assets/img/newlogo.jpg" rel="icon">
+  <style>
+    /* Resetting some basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      flex-direction: column; /* Allow stacking of header, section, footer */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    section {
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+      margin-bottom: 20px; /* Add spacing between section and footer */
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    form input[type="url"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    form button {
+      width: 85%;
+      padding: 12px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #45a049;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: auto; /* Ensure the footer is at the bottom */
+      padding-top: 20px; /* Adds some space before footer content */
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    .result-btn {
+      padding: 12px 20px;
+      background-color: #008CBA;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .result-btn:hover {
+      background-color: #007B9A;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><a href="/">PhishDetector</a></h1>
+  </header>
+
+  <!-- Main Content -->
+  <section>
+    <h2>FAKE WEBSITE DETECTION</h2>
+    <form action="/result" method="POST">
+      <input type="url" name="url" placeholder="Enter a URL (http or https)" required>
+      <button type="submit">Scan URL</button>
+    </form>
+
+    <p>
+      {% if name %}
+        <strong>{{ name[0] }}</strong><br>
+        <h2>Website is {{ name[1] }} to use</h2>
+        <a href="{{ name[0] }}" class="result-btn" target="_blank">{{ name[2] }}</a>
+      {% endif %}
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>PhishDetector &copy; 2025</p>
+  </footer>
+
+</body>
+
+</html>
